@@ -47,10 +47,18 @@ body {
 }
 .user-card {
   background-color: rgba(25, 25, 24, 255);
+  width: 90%;
+  height: 90%;
+  margin: 50px auto 0;
+  border-radius: 20px;
+  overflow: hidden;
 }
 .top-half {
   display: flex;
   align-items: stretch;
+}
+.bottom-half{
+  padding: 10px;
 }
 .pfp-block {
   background-color: rgba(34, 34, 34, 255);
@@ -58,6 +66,7 @@ body {
   flex-shrink: 1;
   flex-basis: 0%;
   position: relative;
+  border-bottom-right-radius: 20px;
 }
 .pfp-container{
   position: absolute;
@@ -75,8 +84,11 @@ body {
   flex-basis: 0%;
   padding: 15px;
 }
+.pinned-image{
+  border-radius: 10px;
+}
 .pfp-container img{
-  width: 200px;
-  height: 200px;
+  width: 180px;
+  height: 180px;
   border-radius: 100px;
 }
