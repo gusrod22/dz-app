@@ -62,7 +62,7 @@ body {
 }
 .pfp-block {
   background-color: rgba(34, 34, 34, 255);
-  flex-grow: 1.8;
+  flex-grow: 2;
   flex-shrink: 1;
   flex-basis: 0%;
   position: relative;
@@ -70,8 +70,8 @@ body {
 }
 .pfp-container{
   position: absolute;
-  top: 10px;
-  left: 10px;
+  top: 8px;
+  left: 8px;
 }
 .user-name{
   position: absolute;
