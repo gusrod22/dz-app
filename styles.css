@@ -45,30 +45,28 @@ h6 {
 body {
   font-family: "Nunito Sans";
   position: relative;
-  display: flex;
-  justify-content: center;
   color: white;
-  font-size: .875rem;
+  font-size: 0.875rem;
 }
 .profile-card {
   position: absolute;
-  top: 45px;
+  top: 25%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   background-color: rgba(25, 25, 24, 255);
   width: 350px;
-  height: 300px;
-  display: flex;
+  height: 40%;
   flex-direction: column;
-  margin: 0 auto;
   border-radius: 20px;
 }
 .top-half {
   display: flex;
   align-items: center;
-  height: 320px;
+  height: 50%;
 }
 
 .user-info {
-  background-color: rgba(34, 34, 34, .65);
+  background-color: rgba(34, 34, 34, 0.65);
   position: relative;
   flex: 1.6;
   height: 100%;
@@ -76,7 +74,6 @@ body {
   border-bottom-right-radius: 10px;
   position: relative;
   border-top-left-radius: 20px;
-
 }
 
 .profile-picture {
@@ -100,20 +97,20 @@ body {
 
 .pinned-image-container {
   position: relative;
-  display: flex;
+  /* display: flex; */
   justify-content: center;
   align-items: center;
   flex: 1;
   height: 100%;
-  padding: 10px;
-  box-sizing: border-box;
+  /* padding: 10px; */
+  /* box-sizing: border-box; */
 }
 
 .pinned-image {
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%,-50%);
+  transform: translate(-50%, -50%);
   max-height: 100%;
   width: auto;
   object-fit: cover;
