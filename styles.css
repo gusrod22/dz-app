@@ -44,6 +44,7 @@ h6 {
 }
 body {
   color: white;
+  font-family: "Nunito Sans", sans-serif;
 }
 .user-card {
   background-color: rgba(25, 25, 24, 255);
@@ -57,8 +58,10 @@ body {
   display: flex;
   align-items: stretch;
 }
-.bottom-half{
+.bottom-half {
   padding: 10px;
+  padding-bottom: 70px;
+  position: relative;
 }
 .pfp-block {
   background-color: rgba(34, 34, 34, 255);
@@ -68,12 +71,12 @@ body {
   position: relative;
   border-bottom-right-radius: 20px;
 }
-.pfp-container{
+.pfp-container {
   position: absolute;
   top: 8px;
   left: 8px;
 }
-.user-name{
+.user-name {
   position: absolute;
   bottom: 10px;
   left: 10px;
@@ -84,11 +87,21 @@ body {
   flex-basis: 0%;
   padding: 15px;
 }
-.pinned-image{
+.pinned-image {
   border-radius: 10px;
 }
-.pfp-container img{
+.pfp-container img {
   width: 180px;
   height: 180px;
   border-radius: 100px;
+}
+button {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  background-color: rgba(225, 186, 75, 255);
+  border-radius: 20px;
+  border: none;
+  width: 100px;
+  padding: .5rem;
 }
