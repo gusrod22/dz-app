@@ -43,99 +43,40 @@ h6 {
   isolation: isolate;
 }
 body {
-  font-family: "Nunito Sans";
-  position: relative;
   color: white;
-  font-size: 0.875rem;
 }
-.profile-card {
-  position: absolute;
-  top: 25%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+.user-card {
   background-color: rgba(25, 25, 24, 255);
-  width: 350px;
-  height: 40%;
-  flex-direction: column;
-  border-radius: 20px;
 }
 .top-half {
   display: flex;
-  align-items: center;
-  height: 50%;
+  align-items: stretch;
 }
-
-.user-info {
-  background-color: rgba(34, 34, 34, 0.65);
+.pfp-block {
+  background-color: rgba(34, 34, 34, 255);
+  flex-grow: 1.8;
+  flex-shrink: 1;
+  flex-basis: 0%;
   position: relative;
-  flex: 1.6;
-  height: 100%;
-  border-top-right-radius: 10px;
-  border-bottom-right-radius: 10px;
-  position: relative;
-  border-top-left-radius: 20px;
 }
-
-.profile-picture {
+.pfp-container{
   position: absolute;
-  margin-right: 10px;
-  top: 8px;
-  left: 8px;
-  border-radius: 100px;
-  height: 150px;
-  width: 150px;
-  object-fit: cover;
-}
-
-.user-name {
-  font-weight: 700;
-  position: absolute;
-  bottom: 5px;
-  left: 8px;
-  color: white;
-}
-
-.pinned-image-container {
-  position: relative;
-  /* display: flex; */
-  justify-content: center;
-  align-items: center;
-  flex: 1;
-  height: 100%;
-  /* padding: 10px; */
-  /* box-sizing: border-box; */
-}
-
-.pinned-image {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  max-height: 100%;
-  width: auto;
-  object-fit: cover;
-}
-
-.bottom-half {
-  position: relative;
-  height: 50%;
-  margin-top: 16px;
-}
-
-.user-bio {
-  position: absolute;
+  top: 10px;
   left: 10px;
-  flex: 1.2;
 }
-
-.follow-btn {
+.user-name{
   position: absolute;
-  right: 25px;
-  bottom: 25px;
-  background-color: rgba(225, 186, 75, 255);
-  color: black;
-  padding: 5px 15px;
-  border: none;
-  cursor: pointer;
-  border-radius: 20px;
+  bottom: 10px;
+  left: 10px;
+}
+.pinned-image-container {
+  flex-grow: 1;
+  flex-shrink: 1;
+  flex-basis: 0%;
+  padding: 15px;
+}
+.pfp-container img{
+  width: 200px;
+  height: 200px;
+  border-radius: 100px;
 }
