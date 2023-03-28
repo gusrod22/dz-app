@@ -78,7 +78,7 @@ body {
 }
 .user-name {
   position: absolute;
-  bottom: 10px;
+  bottom: 5px;
   left: 10px;
 }
 .pinned-image-container {
