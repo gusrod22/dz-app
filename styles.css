@@ -122,7 +122,7 @@ button {
   gap: 10px;
   margin-top: 30px;
   height: 600px; /* Set a fixed height for the image grid */
-  overflow-y: scroll; /* Enable scrolling within the image grid */
+  overflow: hidden; /* Add this line to disable scrolling inside the container */
 }
 
 .image-container {

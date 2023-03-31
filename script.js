@@ -5,22 +5,22 @@ function getRandomInt(min, max) {
     return Math.floor(Math.random() * (max - min + 1)) + min;
   }
   
-// Function to randomize the grid layout
-function randomizeGridLayout() {
+  // Function to randomize the grid layout
+  function randomizeGridLayout() {
     const layouts = [
-      { layout1: '1 / 1 / 3 / 2', layout2: '1 / 2 / 2 / 3', layout3: '2 / 2 / 3 / 3', layout4: '3 / 1 / 4 / 3' },
-      { layout1: '1 / 1 / 2 / 2', layout2: '2 / 1 / 3 / 2', layout3: '1 / 2 / 2 / 3', layout4: '2 / 2 / 4 / 3' },
-      { layout1: '1 / 1 / 2 / 3', layout2: '2 / 1 / 3 / 2', layout3: '3 / 1 / 4 / 2', layout4: '2 / 2 / 4 / 3' },
+      ['1 / 1 / 3 / 2', '1 / 2 / 2 / 3', '2 / 2 / 3 / 3', '3 / 1 / 4 / 3'],
+      ['1 / 1 / 2 / 2', '2 / 1 / 3 / 2', '1 / 2 / 2 / 3', '2 / 2 / 4 / 3'],
+      ['1 / 1 / 2 / 3', '2 / 1 / 3 / 2', '3 / 1 / 4 / 2', '2 / 2 / 4 / 3'],
     ];
   
     const randomLayout = layouts[getRandomInt(0, layouts.length - 1)];
     const imageContainers = document.querySelectorAll('.image-container');
   
     imageContainers.forEach((container, index) => {
-      container.style.gridArea = randomLayout[`layout${index + 1}`];
+      container.style.gridArea = randomLayout[index];
     });
   }
-    
+  
   // Debounce function
   function debounce(func, wait) {
     let timeout;
@@ -31,9 +31,16 @@ function randomizeGridLayout() {
     };
   }
   
-  // Attach the randomizeGridLayout function to the scroll event of the image grid
+  // Attach the randomizeGridLayout function to the wheel event of the image grid
   const imageGrid = document.querySelector('.image-grid');
-  imageGrid.addEventListener('scroll', debounce(() => {
+  imageGrid.addEventListener('wheel', (event) => {
+    event.preventDefault(); // Add this line to prevent the main scrollbar from scrolling
     randomizeGridLayout();
-  }, 300));
+  });
+  
+  // Add smooth transition between layouts
+  const imageContainers = document.querySelectorAll('.image-container');
+  imageContainers.forEach((container) => {
+    container.style.transition = 'all 0.5s ease';
+  });
   
