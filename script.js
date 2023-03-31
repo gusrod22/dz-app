@@ -1,13 +1,22 @@
-const video = document.querySelector('video');
-  const start = 0; // Start time in seconds
-  const duration = 3; // Duration of the loop in seconds
-
-  video.addEventListener('loadedmetadata', () => {
-    video.currentTime = start;
+// Function to generate a random number between min and max
+function getRandomInt(min, max) {
+    min = Math.ceil(min);
+    max = Math.floor(max);
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+  }
+  
+  // Function to randomize the grid layout
+  function randomizeGridLayout() {
+    const imageContainers = document.querySelectorAll('.image-container');
+    
+    imageContainers.forEach((container) => {
+      container.style.gridRowEnd = 'span ' + getRandomInt(1, 2);
+      container.style.gridColumnEnd = 'span ' + getRandomInt(1, 2);
+    });
+  }
+  
+  // Attach the randomizeGridLayout function to the scroll event
+  window.addEventListener('scroll', () => {
+    randomizeGridLayout();
   });
-
-  video.addEventListener('timeupdate', () => {
-    if (video.currentTime >= start + duration) {
-      video.currentTime = start;
-    }
-  });
+  

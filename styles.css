@@ -50,11 +50,11 @@ body {
   -webkit-font-smoothing: antialiased;
   min-height: 100vh; /* Add this line */
 }
-img{
+img {
   border-radius: 10px;
   object-fit: cover;
 }
-.main-layout{
+.main-layout {
   width: 95%;
   margin: 45px auto 0;
   margin-bottom: 45px;
@@ -113,7 +113,7 @@ button {
   border-radius: 20px;
   border: none;
   width: 100px;
-  padding: .5rem;
+  padding: 0.5rem;
 }
 .image-grid {
   display: grid;
@@ -133,8 +133,9 @@ button {
   padding-bottom: 200%;
 }
 
-.wide-video {
+.wide-image {
   grid-column: span 2;
+  padding-bottom: 56.25%;
 }
 
 .image-container-wide video {
@@ -146,8 +147,6 @@ button {
   height: 100%;
   object-fit: cover;
 }
-
-
 
 .image-container img {
   position: absolute;
