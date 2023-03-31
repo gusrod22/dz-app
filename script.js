@@ -9,38 +9,26 @@ function getRandomInt(min, max) {
 function cloneImageGrid(imageGrid) {
   const clone = imageGrid.cloneNode(true);
   clone.style.opacity = 0;
-  clone.style.position = "absolute";
+  clone.style.position = 'absolute';
   return clone;
 }
 
 // Function to randomize the grid layout in the clone
 function randomizeGridLayout(clone) {
   const layouts = [
-    [
-      "1 / 1 / span 2 / span 2",
-      "1 / 3 / span 1 / span 1",
-      "2 / 3 / span 1 / span 1",
-      "3 / 1 / span 1 / span 3",
-    ],
-    [
-      "1 / 1 / span 1 / span 2",
-      "2 / 1 / span 1 / span 2",
-      "1 / 3 / span 1 / span 1",
-      "2 / 3 / span 2 / span 1",
-    ],
-    [
-      "1 / 1 / span 1 / span 3",
-      "2 / 1 / span 1 / span 1",
-      "3 / 1 / span 1 / span 1",
-      "2 / 2 / span 2 / span 1",
-    ],
+    ["a", "b", "c", "d"],
+    ["b", "a", "c", "d"],
+    ["a", "c", "b", "d"],
+    ["b", "c", "a", "d"],
+    ["c", "a", "b", "d"],
+    ["c", "b", "a", "d"],
   ];
 
   const randomLayout = layouts[getRandomInt(0, layouts.length - 1)];
   const imageContainers = clone.querySelectorAll(".image-container");
 
-  imageContainers.forEach((container, index) => {
-    container.style.gridArea = randomLayout[index];
+  imageContainers.forEach((imageContainer, index) => {
+    imageContainer.style.gridArea = randomLayout[index];
   });
 }
 
@@ -50,9 +38,9 @@ function handleSwipeUp(event, imageGrid) {
   randomizeGridLayout(clone);
   imageGrid.parentNode.insertBefore(clone, imageGrid);
 
-  imageGrid.style.transition = "opacity 0.25s";
+  imageGrid.style.transition = 'opacity 0.25s';
   imageGrid.style.opacity = 0;
-  clone.style.transition = "opacity 0.25s";
+  clone.style.transition = 'opacity 0.25s';
   clone.style.opacity = 1;
 
   setTimeout(() => {
@@ -62,14 +50,28 @@ function handleSwipeUp(event, imageGrid) {
 
 // Swipe gesture detection
 let touchStartY;
-const imageGrid = document.querySelector(".image-grid");
+const imageGrid = document.querySelector('.image-grid');
 
-imageGrid.addEventListener("touchstart", (event) => {
+imageGrid.addEventListener('touchstart', (event) => {
   touchStartY = event.touches[0].clientY;
 });
 
-imageGrid.addEventListener("touchend", (event) => {
+imageGrid.addEventListener('touchend', (event) => {
   const touchEndY = event.changedTouches[0].clientY;
+  const deltaY = touchStartY - touchEndY;
+
+  if (deltaY > 50) {
+    handleSwipeUp(event, imageGrid);
+  }
+});
+
+// Add this part to handle swipe gestures on desktop devices
+imageGrid.addEventListener('mousedown', (event) => {
+  touchStartY = event.clientY;
+});
+
+imageGrid.addEventListener('mouseup', (event) => {
+  const touchEndY = event.clientY;
   const deltaY = touchStartY - touchEndY;
 
   if (deltaY > 50) {

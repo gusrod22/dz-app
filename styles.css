@@ -115,40 +115,7 @@ button {
   width: 100px;
   padding: 0.5rem;
 }
-.image-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: repeat(2, 1fr);
-  gap: 8px;
-  width: 300px;
-  height: 200px;
-  position: relative;
-}
 
-.image-container {
-  position: relative;
-  overflow: hidden;
-}
-
-.tall-image {
-  grid-row: span 2;
-  padding-bottom: 200%;
-}
-
-.wide-image {
-  grid-column: span 2;
-  padding-bottom: 56.25%;
-}
-
-.image-container-wide video {
-  border-radius: 10px;
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
 
 .image-container img {
   position: absolute;
@@ -157,4 +124,38 @@ button {
   width: 100%;
   height: 100%;
   object-fit: cover;
+}
+
+.image-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
+  grid-template-areas:
+    "a b"
+    "a c"
+    "d d";
+  gap: 8px;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+}
+
+.image-container {
+  position: relative;
+}
+
+.image-container:nth-child(1) {
+  grid-area: a;
+}
+
+.image-container:nth-child(2) {
+  grid-area: b;
+}
+
+.image-container:nth-child(3) {
+  grid-area: c;
+}
+
+.image-container:nth-child(4) {
+  grid-area: d;
 }
