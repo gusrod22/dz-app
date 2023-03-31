@@ -16,9 +16,10 @@ function cloneImageGrid(imageGrid) {
 // Function to randomize the grid layout in the clone
 function randomizeGridLayout(clone) {
   const layouts = [
-    "'a a b' 'a a c' 'd d c'",
-    "'a b c' 'a b c' 'd d d'",
-    "'a a a' 'b d d' 'c d d'",
+    "'a b' 'a c' 'd d'",
+    "'a a' 'b c' 'd d'",
+    "'a b' 'a d' 'c d'",
+    "'b a' 'c a' 'c d'",
   ];
 
   const randomLayout = layouts[getRandomInt(0, layouts.length - 1)];
@@ -37,6 +38,10 @@ function addEventListeners(imageGrid) {
     if (deltaY > 50) {
       handleSwipeUp(event, imageGrid);
     }
+  });
+
+  imageGrid.addEventListener('touchmove', (event) => {
+    event.preventDefault();
   });
 
   imageGrid.addEventListener('mousedown', (event) => {
