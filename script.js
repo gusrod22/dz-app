@@ -15,8 +15,19 @@ function getRandomInt(min, max) {
     });
   }
   
-  // Attach the randomizeGridLayout function to the scroll event
-  window.addEventListener('scroll', () => {
+  // Debounce function
+  function debounce(func, wait) {
+    let timeout;
+    return function (...args) {
+      const context = this;
+      clearTimeout(timeout);
+      timeout = setTimeout(() => func.apply(context, args), wait);
+    };
+  }
+  
+  // Attach the randomizeGridLayout function to the scroll event of the image grid
+  const imageGrid = document.querySelector('.image-grid');
+  imageGrid.addEventListener('scroll', debounce(() => {
     randomizeGridLayout();
-  });
+  }, 300));
   
