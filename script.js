@@ -1,4 +1,5 @@
 // Function to generate a random number between min and max
+// This function is used later to select a random layout for the new image-grid
 function getRandomInt(min, max) {
   min = Math.ceil(min);
   max = Math.floor(max);
@@ -6,6 +7,7 @@ function getRandomInt(min, max) {
 }
 
 // Function to create a clone of the image grid
+// This function is used later to create a new image grid with a randomized layout
 function cloneImageGrid(imageGrid) {
   const clone = imageGrid.cloneNode(true);
   clone.style.opacity = 0;
@@ -14,6 +16,7 @@ function cloneImageGrid(imageGrid) {
 }
 
 // Function to randomize the grid layout in the clone
+// this function is used later to create a new image grid
 function randomizeGridLayout(clone) {
   const layouts = [
     "'a b' 'a c' 'd d'",
@@ -41,7 +44,10 @@ function addEventListeners(imageGrid) {
   });
 
   imageGrid.addEventListener('touchmove', (event) => {
-    event.preventDefault();
+    // Only prevent default if the user is swiping within the imageGrid element
+    if (event.target === imageGrid) {
+      event.preventDefault();
+    }
   });
 
   imageGrid.addEventListener('mousedown', (event) => {
