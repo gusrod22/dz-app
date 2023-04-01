@@ -41,10 +41,10 @@ function randomizeGridLayout(clone) {
   let randomLayout;
   do {
     randomLayout = layouts[getRandomInt(0, layouts.length - 1)];
-  } while (randomLayout === previousLayout);
+  } while (randomLayout === clone.style.gridTemplateAreas);
 
-  previousLayout = randomLayout;
   clone.style.gridTemplateAreas = randomLayout;
+  addEventListeners(clone); // Add event listeners to the new grid
 }
 
 
@@ -91,10 +91,7 @@ function handleSwipeUp(event, imageGrid) {
   clone.style.transition = 'opacity 0.25s';
   clone.style.opacity = 1;
 
-  setTimeout(() => {
-    imageGrid.parentNode.removeChild(imageGrid);
-    addEventListeners(clone); // Add event listeners to the new grid
-  }, 250);
+  imageGrid.parentNode.removeChild(imageGrid);
 }
 
 let touchStartY;
