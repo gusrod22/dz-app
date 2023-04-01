@@ -17,6 +17,8 @@ function cloneImageGrid(imageGrid) {
 
 // Function to randomize the grid layout in the clone
 // this function is used later to create a new image
+let previousLayout;
+
 function randomizeGridLayout(clone) {
   const layouts = [
     "'a b' 'a c' 'd d'",
@@ -34,38 +36,17 @@ function randomizeGridLayout(clone) {
     "'a d' 'a b' 'c d'",
     "'a d' 'b d' 'c c'",
     "'a d' 'c d' 'b c'",
-    "'b a' 'c a' 'c d'",
-    "'b a' 'c d' 'c a'",
-    "'b a' 'd a' 'c d'",
-    "'b c' 'a a' 'd d'",
-    "'b c' 'a d' 'd a'",
-    "'b c' 'd c' 'a d'",
-    "'b d' 'a a' 'c d'",
-    "'b d' 'a c' 'c a'",
-    "'b d' 'c d' 'a c'",
-    "'c a' 'c d' 'a b'",
-    "'c a' 'c d' 'b a'",
-    "'c a' 'd a' 'b d'",
-    "'c c' 'a a' 'b d'",
-    "'c c' 'a b' 'b a'",
-    "'c c' 'b c' 'a b'",
-    "'c d' 'a b' 'a c'",
-    "'c d' 'a c' 'a b'",
-    "'c d' 'b c' 'a d'",
-    "'d a' 'c a' 'b d'",
-    "'d a' 'c d' 'a b'",
-    "'d a' 'd b' 'c c'",
-    "'d c' 'a a' 'b d'",
-    "'d c' 'a d' 'b a'",
-    "'d c' 'b c' 'a d'",
-    "'d d' 'a a' 'b c'",
-    "'d d' 'a c' 'b a'",
-    "'d d' 'b d' 'a c'",
   ];
-  
-  const randomLayout = layouts[getRandomInt(0, layouts.length - 1)];
+
+  let randomLayout;
+  do {
+    randomLayout = layouts[getRandomInt(0, layouts.length - 1)];
+  } while (randomLayout === previousLayout);
+
+  previousLayout = randomLayout;
   clone.style.gridTemplateAreas = randomLayout;
 }
+
 
 function addEventListeners(imageGrid) {
   imageGrid.addEventListener('touchstart', (event) => {
@@ -76,7 +57,7 @@ function addEventListeners(imageGrid) {
     const touchEndY = event.changedTouches[0].clientY;
     const deltaY = touchStartY - touchEndY;
 
-    if (deltaY > 50) {
+    if (deltaY > 20) {
       handleSwipeUp(event, imageGrid);
     }
   });
