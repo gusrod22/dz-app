@@ -9,7 +9,7 @@ function getRandomInt(min, max) {
 function cloneImageGrid(imageGrid) {
   const clone = imageGrid.cloneNode(true);
   clone.style.opacity = 0;
-  clone.style.position = 'absolute';
+  // clone.style.position = 'absolute';
   return clone;
 }
 
